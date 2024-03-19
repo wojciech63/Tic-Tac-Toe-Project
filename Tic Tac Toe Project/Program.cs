@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.ComponentModel.Design;
 using System.Numerics;
 using System.Threading.Channels;
 
@@ -11,7 +12,7 @@ public class Game
 {
     private bool IsGameOn;
     private int ChoosePlayer;
-
+    private string[] XO = new string[9];
 
     public void Start()
     {
@@ -54,8 +55,6 @@ public class Game
     {
         IsGameOn = true;
         
-        string[] XO = new string[9];
-        
         for (int i = 0; i < XO.Length; i++)
         {
             XO[i] = " ";
@@ -67,16 +66,13 @@ public class Game
             ChoosePlayer = j % 2;
             if (ChoosePlayer == 0)
             {
+                Console.Clear();
+                Board();
                 Console.WriteLine("X's turn");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 if (choice >= 1 && choice <= 9 && XO[choice - 1] == " ")
                 {
                     XO[choice - 1] = "X";
-                    Console.WriteLine($" {XO[0]} | {XO[1]} | {XO[2]} ");
-                    Console.WriteLine("---+---+---");
-                    Console.WriteLine($" {XO[3]}   {XO[4]}  {XO[5]}  ");
-                    Console.WriteLine("---+---+---");
-                    Console.WriteLine($" {XO[6]} | {XO[7]} | {XO[8]} ");
                 }
                 else
                 {
@@ -86,34 +82,30 @@ public class Game
             }
             else
             {
+                Console.Clear();
+                Board();                
                 Console.WriteLine("O's turn");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 if (choice >= 1 && choice <= 9 && XO[choice - 1] == " ")
                 {
                     XO[choice - 1] = "O";
-                    Console.WriteLine($" {XO[0]} | {XO[1]} | {XO[2]} ");
-                    Console.WriteLine("---+---+---");
-                    Console.WriteLine($" {XO[3]}   {XO[4]}  {XO[5]}  ");
-                    Console.WriteLine("---+---+---");
-                    Console.WriteLine($" {XO[6]} | {XO[7]} | {XO[8]} ");
                 }
                 else
                 {
                     Console.WriteLine("Wrong move!");
                     j -= 1;
-                }
+                }               
             }
         }
 
     }
-
     private void Board()
     {
-        Console.WriteLine("   |   |   ");
+        Console.WriteLine($" {XO[0]} | {XO[1]} | {XO[2]} ");
         Console.WriteLine("---+---+---");
-        Console.WriteLine("           ");
+        Console.WriteLine($" {XO[3]}   {XO[4]}  {XO[5]}  ");
         Console.WriteLine("---+---+---");
-        Console.WriteLine("   |   |   ");
+        Console.WriteLine($" {XO[6]} | {XO[7]} | {XO[8]} ");
     }
 
     private void AboutMe()
