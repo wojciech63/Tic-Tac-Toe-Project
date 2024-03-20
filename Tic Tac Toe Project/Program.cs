@@ -13,18 +13,24 @@ public class Game
     private bool IsGameOn;
     private int ChoosePlayer;
     private string[] XO = new string[9];
+    private int scoreO;
+    private int scoreX;
 
     public void Start()
     {
         Console.WriteLine("Welcome in Tic Tac Toe!");
-        Line();
         Console.WriteLine("What would you like to do?");
         Line();
         Console.WriteLine("1. Start new game");
         Line();
         Console.WriteLine("2. About author");
         Line();
-        Console.WriteLine("3. Exit");
+        Console.WriteLine("3. Scoreboard");
+        Line();
+        Console.WriteLine("4. Exit");
+        Line();
+        Console.WriteLine();
+        Console.WriteLine("What's your choice?");
         int firstchoice = Convert.ToInt32(Console.ReadLine());
         Console.Clear();
         switch (firstchoice)
@@ -38,6 +44,10 @@ public class Game
                 Console.Clear();
                 break;
             case 3:
+                Scoreboard();
+                Console.Clear();
+                break;
+            case 4:
                 Exit();
                 break;
             default:
@@ -80,75 +90,35 @@ public class Game
                 }
                 if (XO[0] == "X" && XO[0] == XO[1] && XO[1] == XO[2] && XO[0] != " " && XO[1] != " " && XO[2] != " ")  // Winning Conditions
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[3] == "X" && XO[3] == XO[4] && XO[4] == XO[5] && XO[3] != " " && XO[4] != " " && XO[5] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[6] == "X" && XO[6] == XO[7] && XO[7] == XO[8] && XO[6] != " " && XO[7] != " " && XO[8] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[0] == "X" && XO[0] == XO[3] && XO[3] == XO[6] && XO[0] != " " && XO[3] != " " && XO[6] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[1] == "X" && XO[1] == XO[4] && XO[4] == XO[7] && XO[1] != " " && XO[4] != " " && XO[7] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[2] == "X" && XO[2] == XO[5] && XO[5] == XO[8] && XO[2] != " " && XO[5] != " " && XO[8] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[0] == "X" && XO[0] == XO[4] && XO[4] == XO[8] && XO[0] != " " && XO[4] != " " && XO[8] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
                 else if (XO[2] == "X" && XO[2] == XO[4] && XO[4] == XO[6] && XO[2] != " " && XO[4] != " " && XO[6] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("X Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Xwon();
                 }
             }
             else
@@ -168,75 +138,35 @@ public class Game
                 }
                 if (XO[0] == "O" && XO[0] == XO[1] && XO[1] == XO[2] && XO[0] != " " && XO[1] != " " && XO[2] != " ")  // Winning Conditions
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[3] == "O" && XO[3] == XO[4] && XO[4] == XO[5] && XO[3] != " " && XO[4] != " " && XO[5] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[6] == "O" && XO[6] == XO[7] && XO[7] == XO[8] && XO[6] != " " && XO[7] != " " && XO[8] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[0] == "O" && XO[0] == XO[3] && XO[3] == XO[6] && XO[0] != " " && XO[3] != " " && XO[6] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[1] == "O" && XO[1] == XO[4] && XO[4] == XO[7] && XO[1] != " " && XO[4] != " " && XO[7] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[2] == "O" && XO[2] == XO[5] && XO[5] == XO[8] && XO[2] != " " && XO[5] != " " && XO[8] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[0] == "O" && XO[0] == XO[4] && XO[4] == XO[8] && XO[0] != " " && XO[4] != " " && XO[8] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
                 else if (XO[2] == "O" && XO[2] == XO[4] && XO[4] == XO[6] && XO[2] != " " && XO[4] != " " && XO[6] != " ")
                 {
-                    Console.Clear();
-                    Board();
-                    Console.WriteLine("O Won!");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Start();
+                    Owon();
                 }
             }
         }
@@ -262,6 +192,39 @@ public class Game
 
     private void Exit()
     {
+        Environment.Exit(0);
+    }
 
+    private void Xwon()
+    {
+        Console.Clear();
+        Board();
+        Console.WriteLine("X Won!");
+        Console.ReadLine();
+        scoreX += 1;
+        Console.Clear();
+        Start();
+    }
+    
+    private void Owon()
+    {
+        Console.Clear();
+        Board();
+        Console.WriteLine("X Won!");
+        Console.ReadLine();
+        scoreO += 1;
+        Console.Clear();
+        Start();
+    }
+
+    private void Scoreboard()
+    {
+        Console.Clear();
+        Console.WriteLine($"Score X: {scoreX}");
+        Console.WriteLine($"Score O: {scoreO}");
+        Console.WriteLine("Press any button to continue");
+        Console.ReadLine();
+        Console.Clear();
+        Start();
     }
 }
